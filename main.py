@@ -49,8 +49,10 @@ def main(args):
     else:
         num_actions = get_num_actions(args.rom_path, args.game)
     
+    # chage summary log directory to current dir
     cur_path = os.path.dirname(os.path.realpath(__file__))
-    args.summ_base_dir = (cur_path+'/summary_logs/{}/{}').format(args.game, time.strftime('%m.%d/%H.%M'))
+    args.summ_base_dir = (cur_path+'/summary_logs/{}/{}({})').format(args.game, 
+            time.strftime('%d.%m-%H.%M'), args.short_description)
     logger.info('logging summaries to {}'.format(args.summ_base_dir))
 
     algorithms = {
@@ -164,6 +166,7 @@ if __name__ == '__main__':
     parser.add_argument('--max_kl', default=0.01, type=float, help='max kl divergence for TRPO updates', dest='max_kl')
     parser.add_argument('--cts_bins', default=8, type=int, help='number of bins to assign pixel values', dest='cts_bins')
     parser.add_argument('--cts_rescale_dim', default=42, type=int, help='rescaled image size to use with cts density model', dest='cts_rescale_dim')
+    parser.add_argument('--short_description', default='', help='Short description of the run parrameters, (currently used in tensorboard)', dest='short_description')
 
     args = parser.parse_args()
     if (args.env=='ALE' and args.rom_path is None):
