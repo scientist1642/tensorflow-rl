@@ -1,0 +1,7 @@
+gym
+tensorflow
+cython
+scikit-image
+opencv-python
+scipy
+matplotlib
