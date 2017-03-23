@@ -7,6 +7,11 @@ __pycache__/
 *.so
 *.c
 
+# logs
+summary_logs/
+checkpoints/
+
+
 # Distribution / packaging
 .Python
 env/

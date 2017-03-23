@@ -49,7 +49,8 @@ def main(args):
     else:
         num_actions = get_num_actions(args.rom_path, args.game)
     
-    args.summ_base_dir = '/tmp/summary_logs/{}/{}'.format(args.game, time.strftime('%m.%d/%H.%M'))
+    cur_path = os.path.dirname(os.path.realpath(__file__))
+    args.summ_base_dir = (cur_path+'/summary_logs/{}/{}').format(args.game, time.strftime('%m.%d/%H.%M'))
     logger.info('logging summaries to {}'.format(args.summ_base_dir))
 
     algorithms = {
