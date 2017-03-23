@@ -6,7 +6,7 @@ import numpy as np
 import utils.logger
 import tensorflow as tf
 
-from policy_based_actor_learner import BaseA3CLearner
+from .policy_based_actor_learner import BaseA3CLearner
 from networks.policy_v_network import PolicyValueNetwork
 
 
@@ -279,14 +279,14 @@ class TRPOLearner(BaseA3CLearner):
 			}
 			#collect worker experience
 			episode_rewards = list()
-			for _ in xrange(self.episodes_per_batch):
+			for _ in range(self.episodes_per_batch):
 				worker_data, reward = self.queue.get()
 				episode_rewards.append(reward)
-				for key, value in worker_data.items():
+				for key, value in list(worker_data.items()):
 					data[key].extend(value)
 					
 			kl = self.update_grads({
-				k: np.array(v) for k, v in data.items()})
+				k: np.array(v) for k, v in list(data.items())})
 			self.update_shared_memory()
 
 			#discard old data

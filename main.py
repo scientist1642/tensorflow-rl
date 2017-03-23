@@ -101,7 +101,7 @@ def main(args):
     if (args.visualize == 2): args.visualize = 0        
     actor_learners = []
     experience_queue = Queue()
-    for i in xrange(args.num_actor_learners):
+    for i in range(args.num_actor_learners):
         if (args.visualize == 2) and (i == args.num_actor_learners - 1):
             args.args.visualize = 1
 

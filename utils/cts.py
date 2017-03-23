@@ -107,7 +107,7 @@ class Estimator(object):
         """
         random_index = random.uniform(0, self.count_total)
 
-        for item, count in self.counts.items():
+        for item, count in list(self.counts.items()):
             if random_index < count:
                 return item
             else:

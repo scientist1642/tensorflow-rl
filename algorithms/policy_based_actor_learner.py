@@ -4,7 +4,7 @@ import numpy as np
 import utils.logger
 import tensorflow as tf
 from utils import checkpoint_utils
-from actor_learner import ActorLearner, ONE_LIFE_GAMES
+from .actor_learner import ActorLearner, ONE_LIFE_GAMES
 from networks.policy_v_network import PolicyValueNetwork
 
 
@@ -191,7 +191,7 @@ class A3CLearner(BaseA3CLearner):
                             
              
             sel_actions = []
-            for i in reversed(xrange(len(states))):
+            for i in reversed(range(len(states))):
                 R = rewards[i] + self.gamma * R
 
                 y_batch.append(R)
@@ -352,7 +352,7 @@ class A3CLSTMLearner(BaseA3CLearner):
                             
              
             sel_actions = []
-            for i in reversed(xrange(len(states))):
+            for i in reversed(range(len(states))):
                 R = rewards[i] + self.gamma * R
 
                 y_batch.append(R)

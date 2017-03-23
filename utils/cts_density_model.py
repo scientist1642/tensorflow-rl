@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import numpy as np
-from cts import CTS
+from .cts import CTS
 from skimage.transform import resize
 
 

@@ -3,7 +3,7 @@ import numpy as np
 import utils.logger
 import tensorflow as tf
 from networks.policy_v_network import PolicyNetwork
-from policy_based_actor_learner import BaseA3CLearner
+from .policy_based_actor_learner import BaseA3CLearner
 
 
 logger = utils.logger.getLogger('cross_entropy_actor_learner')

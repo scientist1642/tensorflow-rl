@@ -8,8 +8,8 @@ from utils import checkpoint_utils
 
 from utils.fast_cts import CTSDensityModel
 from utils.replay_memory import ReplayMemory
-from policy_based_actor_learner import A3CLearner
-from value_based_actor_learner import ValueBasedLearner
+from .policy_based_actor_learner import A3CLearner
+from .value_based_actor_learner import ValueBasedLearner
 
 
 logger = utils.logger.getLogger('intrinsic_motivation_actor_learner')
@@ -102,7 +102,7 @@ class PseudoCountA3CLearner(A3CLearner):
                             
 
             sel_actions = []
-            for i in reversed(xrange(len(states))):
+            for i in reversed(range(len(states))):
                 R = rewards[i] + self.gamma * R
 
                 y_batch.append(R)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import layers
+from . import layers
 import tensorflow as tf
-from network import Network
+from .network import Network
 
 
 class QNetwork(Network):
